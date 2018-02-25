@@ -21,3 +21,4 @@ caffe_models/*.zip
 *deformed*
 experiments
 py_env/
+.idea/
