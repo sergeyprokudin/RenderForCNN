@@ -48,6 +48,7 @@ if __name__ == '__main__':
     # ----------------------------------
 
     # prepare voc12train gt bbox images and its LMDB
+    import ipdb; ipdb.set_trace()
     matlab_cmd = "addpath('%s'); prepare_voc12_imgs('train','%s',struct('flip',%d,'aug_n',%d,'jitter_IoU',%d,'difficult',1,'truncated',1,'occluded',1));" % (BASE_DIR, g_real_images_voc12train_all_gt_bbox_folder, g_real_images_voc12train_flip, g_real_images_voc12train_aug_n, g_real_images_voc12train_jitter_IoU)
     print matlab_cmd
     os.system('%s -nodisplay -r "try %s ; catch; end; quit;"' % (g_matlab_executable_path, matlab_cmd))
