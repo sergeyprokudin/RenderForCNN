@@ -10,7 +10,6 @@ est_views = est_views/180*pi;
 gt_views = gt_views/180*pi;
 N = size(gt_views,1);
 R_angle_results = [];
-keyboard;
 for j = 1:N
    R_pred = angle2dcm(est_views(j,1), est_views(j,2), est_views(j,3));
    R_label = angle2dcm(gt_views(j,1), gt_views(j,2), gt_views(j,3));
