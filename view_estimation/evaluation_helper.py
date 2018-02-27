@@ -309,6 +309,5 @@ def test_vp_acc(cls_names, img_name_file_list, result_folder, view_label_folder)
 
     # compute Acc and MedErr
     matlab_cmd = "addpath('%s'); test_gt('%s','%s');" % (BASE_DIR, result_folder, view_label_folder)
-    import ipdb; ipdb.set_trace()
     print matlab_cmd
     os.system('%s -nodisplay -r "try %s ; catch; end; quit;"' % (g_matlab_executable_path, matlab_cmd))

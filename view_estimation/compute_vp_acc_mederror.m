@@ -15,11 +15,9 @@ for j = 1:N
    R_label = angle2dcm(gt_views(j,1), gt_views(j,2), gt_views(j,3));
    R_angle = norm(logm(R_pred'*R_label)) / sqrt(2);
    R_angle_results = [R_angle_results; R_angle];
-end
-
-keyboard;
 
 acc = sum(R_angle_results < pi/6) / length(R_angle_results);
+keyboard;
 mederr = median(R_angle_results);
 
 end
