@@ -17,5 +17,4 @@ cls_names = g_shape_names
 img_name_file_list = [os.path.join(g_real_images_voc12val_easy_gt_bbox_folder, name+'.txt') for name in cls_names]
 view_label_folder = g_real_images_voc12val_easy_gt_bbox_folder
 result_folder = os.path.join(BASE_DIR, 'vp_test_results')
-import ipdb; ipdb.set_trace()
 test_vp_acc(cls_names, img_name_file_list, result_folder, view_label_folder)
