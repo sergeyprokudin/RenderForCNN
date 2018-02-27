@@ -5,8 +5,6 @@ object = importdata(img_label_filename);
 data = object.data;
 gt_views = data(:,2:4);
 
-keyboard;
-
 % CALCULATE ROTATION MATRIX ANGLES
 est_views = est_views/180*pi;
 gt_views = gt_views/180*pi;
