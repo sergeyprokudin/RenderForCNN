@@ -1,5 +1,7 @@
 function [acc, mederr] = compute_vp_acc_mederror(view_filename, img_label_filename)
 
+dbstop
+
 est_views = importdata(view_filename);
 object = importdata(img_label_filename);
 data = object.data;
