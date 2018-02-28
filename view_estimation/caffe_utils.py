@@ -190,7 +190,7 @@ def batch_predict(model_deploy_file, model_params_file, BATCH_SIZE, result_keys,
         # foward pass!
         net.blobs['data'].data[...] = map(lambda x: transformer.preprocess('data', x), input_data)
         out = net.forward()
-    
+
         for i,key in enumerate(result_keys):
             probs = out[result_keys[i]]
             for j in range(end_idx-start_idx):
