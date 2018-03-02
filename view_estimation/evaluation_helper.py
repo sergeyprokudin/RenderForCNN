@@ -30,7 +30,8 @@ def viewpoint(img_filenames, class_idxs, output_result_file):
     result_keys = g_caffe_prob_keys
     resize_dim = g_images_resize_dim
     image_mean_file = g_image_mean_file
-    
+
+    import ipdb; ipdb.set_trace()
     # ** NETWORK FORWARD PASS **
     probs_lists = batch_predict(model_deploy_file, model_params_file, batch_size, result_keys, img_filenames, image_mean_file, resize_dim)
     
