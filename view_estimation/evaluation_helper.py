@@ -257,19 +257,19 @@ def test_avp_nv(cls_names, img_name_file_list, det_bbox_mat_file_list, result_fo
     if not os.path.exists(result_folder):
         os.mkdir(result_folder)
     
-    # for i,class_idx in enumerate(class_idxs):
-    #     img_filenames = [x.rstrip().split(' ')[0] for x in open(img_name_file_list[i])]
-    #     class_idxs = [int(class_idx) for _ in range(len(img_filenames))]
-    #
-    #     # viewpoint estimation with caffe python
-    #     # wirte <result_folder>/<class_name>_pred_view.txt
-    #     output_result_file = os.path.join(result_folder, cls_names[i]+'_pred_view.txt')
-    #     viewpoint(img_filenames, class_idxs, output_result_file)
-    #
-    #     # combine det and view
-    #     matlab_cmd = "addpath('%s'); combine_bbox_view('%s','%s','%s','%s', %d);" % (BASE_DIR, cls_names[i], det_bbox_mat_file_list[i], output_result_file, result_folder, 0)
-    #     print matlab_cmd
-    #     os.system('%s -nodisplay -r "try %s ; catch; end; quit;"' % (g_matlab_executable_path, matlab_cmd))
+    for i,class_idx in enumerate(class_idxs):
+        img_filenames = [x.rstrip().split(' ')[0] for x in open(img_name_file_list[i])]
+        class_idxs = [int(class_idx) for _ in range(len(img_filenames))]
+
+        # viewpoint estimation with caffe python
+        # wirte <result_folder>/<class_name>_pred_view.txt
+        output_result_file = os.path.join(result_folder, cls_names[i]+'_pred_view.txt')
+        viewpoint(img_filenames, class_idxs, output_result_file)
+
+        # combine det and view
+        matlab_cmd = "addpath('%s'); combine_bbox_view('%s','%s','%s','%s', %d);" % (BASE_DIR, cls_names[i], det_bbox_mat_file_list[i], output_result_file, result_folder, 0)
+        print matlab_cmd
+        os.system('%s -nodisplay -r "try %s ; catch; end; quit;"' % (g_matlab_executable_path, matlab_cmd))
     
     # compute AVP-NV for all classes
     matlab_cmd = "addpath('%s'); test_det('%s');" % (BASE_DIR, result_folder)
