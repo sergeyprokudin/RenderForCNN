@@ -299,14 +299,14 @@ def test_vp_acc(cls_names, img_name_file_list, result_folder, view_label_folder)
     if not os.path.exists(result_folder):
         os.mkdir(result_folder)
     
-    for i,class_idx in enumerate(class_idxs):
-        tmp_img_filenames = [x.rstrip().split(' ')[0] for x in open(img_name_file_list[i])]
-        tmp_class_idxs = [int(class_idx) for _ in range(len(tmp_img_filenames))]
-
-        # viewpoint estimation with caffe python
-        # wirte <result_folder>/<class_name>_pred_view.txt
-        output_result_file = os.path.join(result_folder, cls_names[i]+'_pred_view.txt')
-        viewpoint(tmp_img_filenames, tmp_class_idxs, output_result_file)
+    # for i,class_idx in enumerate(class_idxs):
+    #     tmp_img_filenames = [x.rstrip().split(' ')[0] for x in open(img_name_file_list[i])]
+    #     tmp_class_idxs = [int(class_idx) for _ in range(len(tmp_img_filenames))]
+    #
+    #     # viewpoint estimation with caffe python
+    #     # wirte <result_folder>/<class_name>_pred_view.txt
+    #     output_result_file = os.path.join(result_folder, cls_names[i]+'_pred_view.txt')
+    #     viewpoint(tmp_img_filenames, tmp_class_idxs, output_result_file)
 
     # compute Acc and MedErr
     matlab_cmd = "addpath('%s'); test_gt('%s','%s');" % (BASE_DIR, result_folder, view_label_folder)
